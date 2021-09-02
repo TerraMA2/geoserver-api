@@ -1,0 +1,1203 @@
+{
+	"info": {
+		"_postman_id": "66e97024-2668-43f8-a4de-18bad827f286",
+		"name": "geoserver-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "dataStore",
+			"item": [
+				{
+					"name": "wms",
+					"item": [
+						{
+							"name": "delete wmsstore",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"workspaceName\": \"teste\",\n    \"dataStoreName\": \"\",\n    \"type\": \"wms\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3300/dataStore",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"dataStore"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create wmsstore",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"workspaceName\": \"teste\",\n    \"type\": \"wms\",\n    \"data\": {\n        \"wmsStore\": {\n            \"name\": \"teste\",\n            \"description\": \"teste\",\n            \"type\": \"WMS\",\n            \"enabled\": true,\n            \"workspace\": {\n                \"name\": \"teste\",\n                \"link\": \"http://localhost:8080/geoserver/rest/workspaces/teste.json\"\n            },\n            \"metadata\": {\n                \"entry\": {\n                    \"@key\": \"useConnectionPooling\",\n                    \"text\": true\n                }\n            },\n            \"__default__\": false,\n            \"capabilitiesURL\": \"\",\n            \"maxConnections\": 60,\n            \"readTimeout\": \"120\",\n            \"connectTimeout\": \"360\"\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3300/dataStore",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"dataStore"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get wmsstores",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3300/dataStore?workspaceName=teste&type=wms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"dataStore"
+									],
+									"query": [
+										{
+											"key": "workspaceName",
+											"value": "teste"
+										},
+										{
+											"key": "type",
+											"value": "wms"
+										},
+										{
+											"key": "dataStoreName",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update wmsstores",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"dataStoreName\": \"teste\",\n    \"workspaceName\": \"teste\",\n    \"type\": \"wms\",\n    \"data\": {\n        \"wmsStore\": {\n            \"name\": \"teste\",\n            \"description\": \"teste\",\n            \"type\": \"WMS\",\n            \"enabled\": true,\n            \"workspace\": {\n                \"name\": \"teste\",\n                \"link\": \"http://localhost:8080/geoserver/rest/workspaces/teste.json\"\n            },\n            \"metadata\": {\n                \"entry\": {\n                    \"@key\": \"useConnectionPooling\",\n                    \"text\": true\n                }\n            },\n            \"__default__\": false,\n            \"capabilitiesURL\": \"\",\n            \"maxConnections\": 60,\n            \"readTimeout\": \"120\",\n            \"connectTimeout\": \"360\"\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3300/dataStore",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"dataStore"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "wmts",
+					"item": [
+						{
+							"name": "create wmts",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"workspaceName\": \"teste\",\n    \"type\": \"wmts\",\n    \"data\": {\n        \"wmtsStore\": {\n            \"name\": \"teste\",\n            \"description\": \"teste\",\n            \"type\": \"WMTS\",\n            \"enabled\": true,\n            \"workspace\": {\n                \"name\": \"teste\",\n                \"link\": \"http://localhost:8080/geoserver/rest/workspaces/teste.json\"\n            },\n            \"metadata\": {\n                \"entry\": {\n                    \"@key\": \"useConnectionPooling\",\n                    \"text\": true\n                }\n            },\n            \"__default__\": false,\n            \"capabilitiesURL\": \"\",\n            \"maxConnections\": 60,\n            \"readTimeout\": \"240\",\n            \"connectTimeout\": \"360\"\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3300/dataStore",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"dataStore"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update wmts",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"dataStoreName\": \"teste\",\n    \"workspaceName\": \"teste\",\n    \"type\": \"wmts\",\n    \"data\": {\n        \"wmtsStore\": {\n            \"name\": \"teste\",\n            \"description\": \"teste\",\n            \"type\": \"WMTS\",\n            \"enabled\": true,\n            \"workspace\": {\n                \"name\": \"teste\",\n                \"link\": \"http://localhost:8080/geoserver/rest/workspaces/teste.json\"\n            },\n            \"metadata\": {\n                \"entry\": {\n                    \"@key\": \"useConnectionPooling\",\n                    \"text\": true\n                }\n            },\n            \"__default__\": false,\n            \"capabilitiesURL\": \"\",\n            \"maxConnections\": 60,\n            \"readTimeout\": \"240\",\n            \"connectTimeout\": \"360\"\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3300/dataStore",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"dataStore"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete wmts",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"dataStoreName\": \"teste\",\n    \"workspaceName\": \"teste\",\n    \"type\": \"wmts\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3300/dataStore",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"dataStore"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get wmtsstores",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3300/dataStore?workspaceName=teste&type=wmts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"dataStore"
+									],
+									"query": [
+										{
+											"key": "workspaceName",
+											"value": "teste"
+										},
+										{
+											"key": "type",
+											"value": "wmts"
+										},
+										{
+											"key": "dataStoreName",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get dataStores",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/dataStore?workspaceName=teste&type=data",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"dataStore"
+							],
+							"query": [
+								{
+									"key": "workspaceName",
+									"value": "teste"
+								},
+								{
+									"key": "type",
+									"value": "data"
+								},
+								{
+									"key": "dataStoreName",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update dataStore",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspaceName\": \"teste\",\n    \"dataStoreName\": \"teste\",\n    \"type\": \"data\",\n    \"data\": {\n        \"dataStore\": {\n            \"name\": \"teste\",\n            \"connectionParameters\": {\n                \"entry\": [\n                    {\"@key\":\"host\",\"$\":\"teste\"},\n                    {\"@key\":\"port\",\"$\":\"teste\"},\n                    {\"@key\":\"database\",\"$\":\"teste\"},\n                    {\"@key\":\"user\",\"$\":\"teste\"},\n                    {\"@key\":\"passwd\",\"$\":\"teste\"},\n                    {\"@key\":\"dbtype\",\"$\":\"teste\"}\n                ]\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/dataStore",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"dataStore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete dataStore",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspaceName\": \"teste\",\n    \"dataStoreName\": \"teste\",\n    \"type\": \"data\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/dataStore",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"dataStore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create dataStore",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspaceName\": \"teste\",\n    \"type\": \"data\",\n    \"data\": {\n        \"dataStore\": {\n            \"name\": \"teste\",\n            \"connectionParameters\": {\n                \"entry\": [\n                    {\"@key\":\"host\",\"$\":\"teste\"},\n                    {\"@key\":\"port\",\"$\":\"teste\"},\n                    {\"@key\":\"database\",\"$\":\"teste\"},\n                    {\"@key\":\"user\",\"$\":\"teste\"},\n                    {\"@key\":\"passwd\",\"$\":\"teste\"},\n                    {\"@key\":\"dbtype\",\"$\":\"teste\"}\n                ]\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/dataStore",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"dataStore"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "workspace",
+			"item": [
+				{
+					"name": "get workspaces",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3300/workspace",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"workspace"
+							],
+							"query": [
+								{
+									"key": "workspaceName",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create workspace",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"workspace\": {\n            \"name\": \"teste\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/workspace",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"workspace"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update workspace",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspaceName\": \"teste\",\n    \"data\": {\n        \"workspace\": {\n            \"name\": \"teste\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/workspace",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"workspace"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete workspace",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspaceName\": \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/workspace",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"workspace"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "layer",
+			"item": [
+				{
+					"name": "wms",
+					"item": [
+						{
+							"name": "create layer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"workspaceName\": \"teste\",\n    \"type\": \"wms\",\n    \"data\": {\n        \"wmsLayer\": {\n            \"name\": \"teste\",\n            \"nativeName\": \"teste\",\n            \"namespace\": {\n                \"name\": \"teste\"\n            },\n            \"title\": \"teste\",\n            \"description\": \"teste\",\n            \"abstract\": \"teste\",\n            \"srs\": \"EPSG:4326\",\n            \"projectionPolicy\": \"FORCE_DECLARED\",\n            \"enabled\": true,\n            \"store\": {\n                \"@class\": \"wmsStore\",\n                \"name\": \"teste:teste\"\n            }\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3300/layer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"layer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update layer",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"workspaceName\": \"teste\",\n    \"layerName\": \"teste\",\n    \"type\": \"wms\",\n    \"data\": {\n        \"wmsLayer\": {\n            \"name\": \"teste\",\n            \"nativeName\": 0,\n            \"namespace\": {\n                \"name\": \"teste\"\n            },\n            \"title\": \"teste\",\n            \"description\": \"teste\",\n            \"abstract\": \"teste\",\n            \"srs\": \"EPSG:4674\",\n            \"projectionPolicy\": \"FORCE_DECLARED\",\n            \"enabled\": true,\n            \"store\": {\n                \"@class\": \"wmsStore\",\n                \"name\": \"teste:teste\"\n            }\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3300/layer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"layer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete layer",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"workspaceName\": \"teste\",\n    \"dataStoreName\": \"teste\",\n    \"layerName\": \"teste\",\n    \"type\": \"wms\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3300/layer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"layer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get layers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3300/layer?workspaceName=teste&type=wms",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"layer"
+									],
+									"query": [
+										{
+											"key": "workspaceName",
+											"value": "teste"
+										},
+										{
+											"key": "type",
+											"value": "wms"
+										},
+										{
+											"key": "layerName",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "wmts",
+					"item": [
+						{
+							"name": "get layers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3300/layer?workspaceName=teste&type=wmts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"layer"
+									],
+									"query": [
+										{
+											"key": "workspaceName",
+											"value": "teste"
+										},
+										{
+											"key": "type",
+											"value": "wmts"
+										},
+										{
+											"key": "layerName",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete layer",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"accept": true,
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"workspaceName\": \"teste\",\n    \"dataStoreName\": \"teste\",\n    \"layerName\": \"teste\",\n    \"type\": \"wmts\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3300/layer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"layer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create layer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"workspaceName\": \"teste\",\n    \"type\": \"wmts\",\n    \"data\": {\n        \"wmtsLayer\": {\n            \"name\": \"teste\",\n            \"nativeName\": \"teste\",\n            \"namespace\": {\n                \"name\": \"teste\"\n            },\n            \"title\": \"teste\",\n            \"description\": \"teste\",\n            \"abstract\": \"teste\",\n            \"srs\": \"EPSG:3857\",\n            \"projectionPolicy\": \"FORCE_DECLARED\",\n            \"enabled\": true,\n            \"store\": {\n                \"@class\": \"wmtsStore\",\n                \"name\": \"teste:teste\"\n            }\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3300/layer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"layer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update layer",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"workspaceName\": \"teste\",\n    \"layerName\": \"teste\",\n    \"type\": \"wmts\",\n    \"data\": {\n        \"wmsLayer\": {\n            \"name\": \"teste\",\n            \"nativeName\": 0,\n            \"namespace\": {\n                \"name\": \"teste\"\n            },\n            \"title\": \"teste\",\n            \"description\": \"teste\",\n            \"abstract\": \"teste\",\n            \"srs\": \"EPSG:4674\",\n            \"projectionPolicy\": \"FORCE_DECLARED\",\n            \"enabled\": true,\n            \"store\": {\n                \"@class\": \"wmtsStore\",\n                \"name\": \"teste:teste\"\n            }\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3300/layer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3300",
+									"path": [
+										"layer"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "layergroup",
+			"item": [
+				{
+					"name": "create layer group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"layerGroup\": {\n            \"name\": \"teste\",\n            \"mode\": \"SINGLE\",\n            \"title\": \"teste\",\n            \"abstractTxt\": \"teste\",\n            \"workspace\": {\n                \"name\": \"teste\",\n                \"href\": \"http://localhost:8080/geoserver/rest/workspaces/teste.json\"\n            },\n            \"publishables\": {\n                \"published\": [\n                    {\n                        \"@type\": \"layer\",\n                        \"name\": \"teste:teste\",\n                        \"link\": \"http://localhost:8080/geoserver/rest/workspaces/teste/layers/teste.json\"\n                    }\n                ]\n            },\n            \"styles\": {\n                \"style\": [\n                    {\n                        \"name\": \"teste\",\n                        \"link\": \"http://localhost:8080/geoserver/rest/workspaces/teste/styles/teste.json\"\n                    }\n                ]\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/layerGroup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"layerGroup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update layer group",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"layerGroupName\": \"teste\",\n    \"data\": {\n        \"layerGroup\": {\n            \"name\": \"teste\",\n            \"mode\": \"SINGLE\",\n            \"title\": \"teste\",\n            \"abstractTxt\": \"teste\",\n            \"workspace\": {\n                \"name\": \"teste\",\n                \"href\": \"http://localhost:8080/geoserver/rest/workspaces/teste.json\"\n            },\n            \"publishables\": {\n                \"published\": [\n                    {\n                        \"@type\": \"layer\",\n                        \"name\": \"teste:teste\",\n                        \"link\": \"http://localhost:8080/geoserver/rest/workspaces/teste/layers/teste.json\"\n                    }\n                ]\n            },\n            \"styles\": {\n                \"style\": [\n                    {\n                        \"name\": \"teste\",\n                        \"link\": \"http://localhost:8080/geoserver/rest/workspaces/teste/styles/teste.json\"\n                    }\n                ]\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/layerGroup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"layerGroup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete layer group",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"layerGroupName\": \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/layergroup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"layergroup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get layers groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3300/layergroup?workspaceName=teste",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"layergroup"
+							],
+							"query": [
+								{
+									"key": "workspaceName",
+									"value": "teste"
+								},
+								{
+									"key": "layerGroupName",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "style",
+			"item": [
+				{
+					"name": "get styles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3300/style?workspaceName=teste",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"style"
+							],
+							"query": [
+								{
+									"key": "workspaceName",
+									"value": "teste"
+								},
+								{
+									"key": "styleName",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create style",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspaceName\": \"teste\",\n    \"data\": {\n        \"style\": { \n            \"name\": \"view122_hatched_style\", \n            \"filename\": \"view122_hatched_style.sld\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/style",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"style"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update style",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"styleName\": \"view122_hatched_style\",\n    \"workspaceName\": \"teste\",\n    \"data\": {\n        \"style\": { \n            \"name\": \"view122_hatched_style\", \n            \"filename\": \"view122_hatched_style.sld\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/style",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"style"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete style",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspaceName\": \"teste\",\n    \"styleName\": \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/style",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"style"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "featureType",
+			"item": [
+				{
+					"name": "create featureType",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspaceName\": \"teste\",\n    \"data\": {\n        \"featureType\": {\n            \"name\": \"teste\",\n            \"nativeName\": \"teste\",\n            \"title\": \"teste\",\n            \"keywords\": {\n                \"string\": [\n                    \"features\",\n                    \"teste\"\n                ]\n            },\n            \"srs\": \"EPSG:4674\",\n            \"nativeBoundingBox\": {\n                \"minx\": -180,\n                \"maxx\": 180,\n                \"miny\": -90,\n                \"maxy\": 90,\n                \"crs\": \"EPSG:4674\"\n            },\n            \"latLonBoundingBox\": {\n                \"minx\": -180,\n                \"maxx\": 180,\n                \"miny\": -90,\n                \"maxy\": 90,\n                \"crs\": \"EPSG:4674\"\n            },\n            \"projectionPolicy\": \"FORCE_DECLARED\",\n            \"enabled\": true,\n            \"metadata\": {\n                \"entry\": [\n                    {\n                        \"@key\": \"JDBC_VIRTUAL_TABLE\",\n                        \"virtualTable\": {\n                            \"name\": \"teste\",\n                            \"sql\": \"\",\n                            \"escapeSql\": false,\n                            \"geometry\": {\n                                \"name\": \"intersection_geom\",\n                                \"type\": \"Geometry\",\n                                \"srid\": -1\n                            }\n                        }\n                    },\n                    {\n                        \"@key\": \"time\",\n                        \"dimensionInfo\": {\n                            \"enabled\": true,\n                            \"attribute\": \"execution_date\",\n                            \"presentation\": \"CONTINUOUS_INTERVAL\",\n                            \"units\": \"ISO8601\",\n                            \"defaultValue\": {\n                                \"strategy\": \"MAXIMUM\"\n                            }\n                        }\n                    },\n                    {\n                        \"@key\": \"cachingEnabled\",\n                        \"$\": \"false\"\n                    }\n                ]\n            },\n            \"maxFeatures\": 0,\n            \"numDecimals\": 0,\n            \"overridingServiceSRS\": false,\n            \"skipNumberMatched\": false,\n            \"circularArcPresent\": false\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/featuretype",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"featuretype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update featureType",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspaceName\": \"teste\",\n    \"data\": {\n        \"featureType\": {\n            \"name\": \"teste\",\n            \"nativeName\": \"teste\",\n            \"title\": \"teste\",\n            \"keywords\": {\n                \"string\": [\n                    \"features\",\n                    \"teste\"\n                ]\n            },\n            \"srs\": \"EPSG:4674\",\n            \"nativeBoundingBox\": {\n                \"minx\": -180,\n                \"maxx\": 180,\n                \"miny\": -90,\n                \"maxy\": 90,\n                \"crs\": \"EPSG:4674\"\n            },\n            \"latLonBoundingBox\": {\n                \"minx\": -180,\n                \"maxx\": 180,\n                \"miny\": -90,\n                \"maxy\": 90,\n                \"crs\": \"EPSG:4674\"\n            },\n            \"projectionPolicy\": \"FORCE_DECLARED\",\n            \"enabled\": true,\n            \"metadata\": {\n                \"entry\": [\n                    {\n                        \"@key\": \"JDBC_VIRTUAL_TABLE\",\n                        \"virtualTable\": {\n                            \"name\": \"teste\",\n                            \"sql\": \"\",\n                            \"escapeSql\": false,\n                            \"geometry\": {\n                                \"name\": \"intersection_geom\",\n                                \"type\": \"Geometry\",\n                                \"srid\": -1\n                            }\n                        }\n                    },\n                    {\n                        \"@key\": \"time\",\n                        \"dimensionInfo\": {\n                            \"enabled\": true,\n                            \"attribute\": \"execution_date\",\n                            \"presentation\": \"CONTINUOUS_INTERVAL\",\n                            \"units\": \"ISO8601\",\n                            \"defaultValue\": {\n                                \"strategy\": \"MAXIMUM\"\n                            }\n                        }\n                    },\n                    {\n                        \"@key\": \"cachingEnabled\",\n                        \"$\": \"false\"\n                    }\n                ]\n            },\n            \"maxFeatures\": 0,\n            \"numDecimals\": 0,\n            \"overridingServiceSRS\": false,\n            \"skipNumberMatched\": false,\n            \"circularArcPresent\": false\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/featuretype",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"featuretype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete featureType",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workspaceName\": \"teste\",\n    \"featureTypeName\": \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3300/featuretype",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"featuretype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get featureTypes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3300/featuretype?workspaceName=teste",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"featuretype"
+							],
+							"query": [
+								{
+									"key": "workspaceName",
+									"value": "teste"
+								},
+								{
+									"key": "dataStoreName",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "featureTypeName",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
