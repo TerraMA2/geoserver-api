@@ -26,7 +26,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3300/dataStore",
+									"raw": "http://localhost:3300/dataStore?geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -34,6 +34,12 @@
 									"port": "3300",
 									"path": [
 										"dataStore"
+									],
+									"query": [
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
+										}
 									]
 								}
 							},
@@ -54,7 +60,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3300/dataStore",
+									"raw": "http://localhost:3300/dataStore?geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -62,6 +68,12 @@
 									"port": "3300",
 									"path": [
 										"dataStore"
+									],
+									"query": [
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
+										}
 									]
 								}
 							},
@@ -73,7 +85,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3300/dataStore?workspaceName=teste&type=wms",
+									"raw": "http://localhost:3300/dataStore?workspaceName=teste&type=wms&geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -93,8 +105,12 @@
 										},
 										{
 											"key": "dataStoreName",
-											"value": null,
+											"value": "",
 											"disabled": true
+										},
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
 										}
 									]
 								}
@@ -116,7 +132,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3300/dataStore",
+									"raw": "http://localhost:3300/dataStore?geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -124,6 +140,12 @@
 									"port": "3300",
 									"path": [
 										"dataStore"
+									],
+									"query": [
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
+										}
 									]
 								}
 							},
@@ -149,7 +171,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3300/dataStore",
+									"raw": "http://localhost:3300/dataStore?geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -157,6 +179,12 @@
 									"port": "3300",
 									"path": [
 										"dataStore"
+									],
+									"query": [
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
+										}
 									]
 								}
 							},
@@ -177,7 +205,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3300/dataStore",
+									"raw": "http://localhost:3300/dataStore?geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -185,6 +213,12 @@
 									"port": "3300",
 									"path": [
 										"dataStore"
+									],
+									"query": [
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
+										}
 									]
 								}
 							},
@@ -205,7 +239,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3300/dataStore",
+									"raw": "http://localhost:3300/dataStore?geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -213,6 +247,12 @@
 									"port": "3300",
 									"path": [
 										"dataStore"
+									],
+									"query": [
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
+										}
 									]
 								}
 							},
@@ -224,7 +264,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3300/dataStore?workspaceName=teste&type=wmts",
+									"raw": "http://localhost:3300/dataStore?workspaceName=teste&type=wmts&geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -244,8 +284,12 @@
 										},
 										{
 											"key": "dataStoreName",
-											"value": null,
+											"value": "",
 											"disabled": true
+										},
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
 										}
 									]
 								}
@@ -256,23 +300,11 @@
 				},
 				{
 					"name": "get dataStores",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:3300/dataStore?workspaceName=teste&type=data",
+							"raw": "http://localhost:3300/dataStore?workspaceName=teste&type=data&geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -292,7 +324,16 @@
 								},
 								{
 									"key": "dataStoreName",
-									"value": null,
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								},
+								{
+									"key": "",
+									"value": "",
 									"disabled": true
 								}
 							]
@@ -315,7 +356,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/dataStore",
+							"raw": "http://localhost:3300/dataStore?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -323,6 +364,12 @@
 							"port": "3300",
 							"path": [
 								"dataStore"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -343,7 +390,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/dataStore",
+							"raw": "http://localhost:3300/dataStore?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -351,6 +398,12 @@
 							"port": "3300",
 							"path": [
 								"dataStore"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -371,7 +424,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/dataStore",
+							"raw": "http://localhost:3300/dataStore?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -379,6 +432,12 @@
 							"port": "3300",
 							"path": [
 								"dataStore"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -395,7 +454,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3300/workspace",
+							"raw": "http://localhost:3300/workspace?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -407,8 +466,12 @@
 							"query": [
 								{
 									"key": "workspaceName",
-									"value": null,
+									"value": "",
 									"disabled": true
+								},
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
 								}
 							]
 						}
@@ -430,7 +493,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/workspace",
+							"raw": "http://localhost:3300/workspace?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -438,6 +501,12 @@
 							"port": "3300",
 							"path": [
 								"workspace"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -458,7 +527,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/workspace",
+							"raw": "http://localhost:3300/workspace?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -466,6 +535,12 @@
 							"port": "3300",
 							"path": [
 								"workspace"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -486,7 +561,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/workspace",
+							"raw": "http://localhost:3300/workspace?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -494,6 +569,12 @@
 							"port": "3300",
 							"path": [
 								"workspace"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -522,7 +603,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3300/layer",
+									"raw": "http://localhost:3300/layer?geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -530,6 +611,12 @@
 									"port": "3300",
 									"path": [
 										"layer"
+									],
+									"query": [
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
+										}
 									]
 								}
 							},
@@ -550,7 +637,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3300/layer",
+									"raw": "http://localhost:3300/layer?geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -558,6 +645,12 @@
 									"port": "3300",
 									"path": [
 										"layer"
+									],
+									"query": [
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
+										}
 									]
 								}
 							},
@@ -595,7 +688,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3300/layer",
+									"raw": "http://localhost:3300/layer?geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -603,6 +696,12 @@
 									"port": "3300",
 									"path": [
 										"layer"
+									],
+									"query": [
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
+										}
 									]
 								}
 							},
@@ -614,7 +713,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3300/layer?workspaceName=teste&type=wms",
+									"raw": "http://localhost:3300/layer?workspaceName=teste&type=wms&geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -634,8 +733,12 @@
 										},
 										{
 											"key": "layerName",
-											"value": null,
+											"value": "",
 											"disabled": true
+										},
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
 										}
 									]
 								}
@@ -653,7 +756,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:3300/layer?workspaceName=teste&type=wmts",
+									"raw": "http://localhost:3300/layer?workspaceName=teste&type=wmts&geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -673,8 +776,12 @@
 										},
 										{
 											"key": "layerName",
-											"value": null,
+											"value": "",
 											"disabled": true
+										},
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
 										}
 									]
 								}
@@ -713,7 +820,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3300/layer",
+									"raw": "http://localhost:3300/layer?geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -721,6 +828,12 @@
 									"port": "3300",
 									"path": [
 										"layer"
+									],
+									"query": [
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
+										}
 									]
 								}
 							},
@@ -741,7 +854,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3300/layer",
+									"raw": "http://localhost:3300/layer?geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -749,6 +862,12 @@
 									"port": "3300",
 									"path": [
 										"layer"
+									],
+									"query": [
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
+										}
 									]
 								}
 							},
@@ -769,7 +888,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3300/layer",
+									"raw": "http://localhost:3300/layer?geoserverBasePath=/",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -777,6 +896,12 @@
 									"port": "3300",
 									"path": [
 										"layer"
+									],
+									"query": [
+										{
+											"key": "geoserverBasePath",
+											"value": "/"
+										}
 									]
 								}
 							},
@@ -804,7 +929,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/layerGroup",
+							"raw": "http://localhost:3300/layerGroup?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -812,6 +937,12 @@
 							"port": "3300",
 							"path": [
 								"layerGroup"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -832,7 +963,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/layerGroup",
+							"raw": "http://localhost:3300/layerGroup?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -840,6 +971,12 @@
 							"port": "3300",
 							"path": [
 								"layerGroup"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -877,7 +1014,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/layergroup",
+							"raw": "http://localhost:3300/layergroup?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -885,6 +1022,12 @@
 							"port": "3300",
 							"path": [
 								"layergroup"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -896,7 +1039,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3300/layergroup?workspaceName=teste",
+							"raw": "http://localhost:3300/layergroup?workspaceName=teste&geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -912,8 +1055,12 @@
 								},
 								{
 									"key": "layerGroupName",
-									"value": null,
+									"value": "",
 									"disabled": true
+								},
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
 								}
 							]
 						}
@@ -931,7 +1078,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3300/style?workspaceName=teste",
+							"raw": "http://localhost:3300/style?workspaceName=teste&geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -947,8 +1094,12 @@
 								},
 								{
 									"key": "styleName",
-									"value": null,
+									"value": "",
 									"disabled": true
+								},
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
 								}
 							]
 						}
@@ -970,7 +1121,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/style",
+							"raw": "http://localhost:3300/style?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -978,6 +1129,12 @@
 							"port": "3300",
 							"path": [
 								"style"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -998,7 +1155,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/style",
+							"raw": "http://localhost:3300/style?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1006,6 +1163,12 @@
 							"port": "3300",
 							"path": [
 								"style"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -1043,7 +1206,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/style",
+							"raw": "http://localhost:3300/style?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1051,6 +1214,12 @@
 							"port": "3300",
 							"path": [
 								"style"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -1076,7 +1245,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/featuretype",
+							"raw": "http://localhost:3300/featuretype?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1084,6 +1253,12 @@
 							"port": "3300",
 							"path": [
 								"featuretype"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -1104,7 +1279,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/featuretype",
+							"raw": "http://localhost:3300/featuretype?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1112,6 +1287,12 @@
 							"port": "3300",
 							"path": [
 								"featuretype"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -1149,7 +1330,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3300/featuretype",
+							"raw": "http://localhost:3300/featuretype?geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1157,6 +1338,12 @@
 							"port": "3300",
 							"path": [
 								"featuretype"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								}
 							]
 						}
 					},
@@ -1168,7 +1355,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3300/featuretype?workspaceName=teste",
+							"raw": "http://localhost:3300/featuretype?workspaceName=teste&geoserverBasePath=/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1191,6 +1378,10 @@
 									"key": "featureTypeName",
 									"value": "",
 									"disabled": true
+								},
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
 								}
 							]
 						}

@@ -2,40 +2,40 @@ const {request} = require("../utils/request");
 const {result} = require("../utils/result");
 const {handleErrors} = require("../utils/handleErrors");
 
-exports.get = async (workspaceName, styleName = '') => {
+exports.get = async (workspaceName, styleName = '', geoserverBasePath) => {
     const url = `workspaces/${ workspaceName }/styles${ styleName ? '/' + styleName : ''}`;
     const method = 'get';
-    return await request({url, method})
+    return await request({url, method}, geoserverBasePath)
         .then(response => result(response.status, '', response.data))
         .catch((error) => handleErrors(error, `Couldn't list styles`));
 }
 
-exports.create = async (data, workspaceName) => {
+exports.create = async (data, workspaceName, geoserverBasePath) => {
     const styleName = data.style.name;
     const url = `workspaces/${ workspaceName }/styles`;
     const method = 'POST';
-    return await request({url, method, data, accept: ''})
+    return await request({url, method, data, accept: ''}, geoserverBasePath)
         .then(response => result(response.status, `Style ${ styleName } created!`))
         .catch((error) => handleErrors(error, `Couldn't create style ${ styleName }`));
 }
 
-exports.update = async (data, workspaceName, styleName) => {
+exports.update = async (data, workspaceName, styleName, geoserverBasePath) => {
     const url = `workspaces/${ workspaceName }/styles/${ styleName }`;
     const method = 'put';
-    return await request({url, method, data})
+    return await request({url, method, data}, geoserverBasePath)
         .then(response => result(response.status, `Style ${ styleName } updated!`))
         .catch((error) => handleErrors(error, `Couldn't update style ${ styleName }`));
 }
 
-exports.delete = async (workspaceName, styleName) => {
+exports.delete = async (workspaceName, styleName, geoserverBasePath) => {
     const url = `workspaces/${ workspaceName }/styles/${ styleName }`;
     const method = 'delete';
-    return await request({url, method})
+    return await request({url, method}, geoserverBasePath)
         .then(response => result(response.status, `Style ${ styleName } deleted!`))
         .catch((error) => handleErrors(error, `Couldn't delete style ${ styleName }`));
 }
 
-exports.upload = async (data, workspaceName, sldFile, sldFileSize) => {
+exports.upload = async (data, workspaceName, sldFile, sldFileSize, geoserverBasePath) => {
     await this.delete(workspaceName, 'Style');
     await this.delete(workspaceName, 'Default Styler');
     const url = `workspaces/${ workspaceName }/styles`;
@@ -47,12 +47,13 @@ exports.upload = async (data, workspaceName, sldFile, sldFileSize) => {
         method,
         data: sldFile,
         contentType: 'application/vnd.ogc.sld+xml',
-        contentLength: sldFileSize
+        contentLength: sldFileSize,
+        geoserverBasePath
     })
         .then(async response => {
             const newStyleName = response.data;
             data.style.filename = `${ newStyleName }.sld`;
-            const updateResponse = await this.update(data, workspaceName, newStyleName);
+            const updateResponse = await this.update(data, workspaceName, newStyleName, geoserverBasePath);
             if (updateResponse.status !== 200 && updateResponse.status !== 201) {
                 return result(updateResponse.status, `Style ${ styleName } not uploaded`);
             }

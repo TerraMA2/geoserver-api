@@ -1,7 +1,8 @@
 const axios = require("axios");
+const url = require("../utils/url");
 const config = require(__dirname + '/../config/config.json');
 
-exports.request = async (options = {}) => {
+exports.request = async (options = {}, geoserverBasePath) => {
     const { contentType = 'application/json', accept = 'application/json', contentLength = null } = options;
     const headers = {
         "Authorization": 'Basic ' + Buffer.from(`${ config.username }:${ config.password }`).toString('base64'),
@@ -16,7 +17,7 @@ exports.request = async (options = {}) => {
         headers['Accept'] = accept;
     }
 
-    options['baseURL'] = config['apiBaseURL'];
+    options['baseURL'] = url.getBaseUrl(geoserverBasePath);
     options['headers'] = headers;
 
     return axios(options);
