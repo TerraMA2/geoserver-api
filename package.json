@@ -3,21 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=geoserver-api:development NODE_ENV=development nodemon ./bin/www",
-    "dev": "DEBUG=geoserver-api:development NODE_ENV=development nodemon ./bin/www",
-    "prod": "NODE_ENV=production node ./bin/www"
+    "prod": "NODE_ENV=production fastify start -l info app.js",
+    "dev": "NODE_ENV=development fastify start -p 3300 -w -l debug -P app.js"
   },
   "dependencies": {
-    "axios": "~0.21.1",
-    "compression": "~1.7.4",
-    "cors": "~2.8.5",
-    "debug": "~4.3.2",
-    "express": "~4.17.1",
-    "helmet": "~4.6.0",
-    "kill-port": "~1.6.1",
-    "morgan": "~1.10.0"
-  },
-  "devDependencies": {
-    "nodemon": "~2.0.12"
+    "axios": "^0.21.4",
+    "fastify": "^3.21.0",
+    "fastify-autoload": "^3.8.1",
+    "fastify-cli": "^2.13.0",
+    "fastify-compress": "^3.6.0",
+    "fastify-cors": "^6.0.2",
+    "fastify-helmet": "^5.3.2",
+    "fastify-plugin": "^3.0.0",
+    "fastify-sensible": "^3.1.1"
   }
 }

@@ -1,13 +1,13 @@
-const express = require('express');
-const router = express.Router();
+'use strict'
 const styleController = require('../controllers/style.controller');
 
-router.get('/', styleController.get);
-router.post('/', styleController.create);
-router.post('/createAll', styleController.createAll);
-router.put('/', styleController.update);
-router.delete('/', styleController.delete);
-router.post('/upload', styleController.upload);
-router.post('/uploadAll', styleController.uploadAll);
+module.exports = async function (fastify, opts) {
+    fastify.get('/style', styleController.get);
+    fastify.post('/style', styleController.create);
+    fastify.post('/style/createAll', styleController.createAll);
+    fastify.put('/style', styleController.update);
+    fastify.delete('/style', styleController.delete);
+    fastify.post('/style/upload', styleController.upload);
+    fastify.post('/style/uploadAll', styleController.uploadAll);
+}
 
-module.exports = router

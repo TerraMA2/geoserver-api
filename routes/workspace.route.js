@@ -1,11 +1,12 @@
-const express = require('express');
-const router = express.Router();
+'use strict'
 const workspaceController = require('../controllers/workspace.controller');
 
-router.get('/', workspaceController.get);
-router.post('/', workspaceController.create);
-router.post('/createAll', workspaceController.createAll);
-router.put('/', workspaceController.update);
-router.delete('/', workspaceController.delete);
+module.exports = async function (fastify, opts) {
+    fastify.get('/workspace', workspaceController.get);
+    fastify.post('/workspace', workspaceController.create);
+    fastify.post('/workspace/createAll', workspaceController.createAll);
+    fastify.put('/workspace', workspaceController.update);
+    fastify.delete('/workspace', workspaceController.delete);
+}
 
-module.exports = router
+

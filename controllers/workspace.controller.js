@@ -1,31 +1,30 @@
 const workspaceService = require("../services/workspace.service");
 
-exports.get = async (req, res, next) => {
-    const {workspaceName, geoserverBasePath} = req.query;
-    res.json(await workspaceService.get(workspaceName, geoserverBasePath));
+exports.get = async (request, reply) => {
+    const {workspaceName, geoserverBasePath} = request.query;
+    return await workspaceService.get(workspaceName, geoserverBasePath);
 };
 
-exports.create = async (req, res, next) => {
-    const {data} = req.body;
-    const {geoserverBasePath} = req.query;
-    res.json(await workspaceService.create(data, geoserverBasePath));
+exports.create = async (request, reply) => {
+    const {data} = request.body;
+    const {geoserverBasePath} = request.query;
+    return await workspaceService.create(data, geoserverBasePath);
 };
 
-exports.createAll = async (req, res, next) => {
-    const workspaces = req.body;
-    const {geoserverBasePath} = req.query;
-    const response = await Promise.all(workspaces.map((workspace => workspaceService.create(workspace.data, geoserverBasePath))));
-    res.json(response);
+exports.createAll = async (request, reply) => {
+    const workspaces = request.body;
+    const {geoserverBasePath} = request.query;
+    return await Promise.all(workspaces.map((workspace => workspaceService.create(workspace.data, geoserverBasePath))));
 };
 
-exports.update = async (req, res, next) => {
-    const {data, workspaceName} = req.body;
-    const {geoserverBasePath} = req.query;
-    res.json(await workspaceService.update(data, workspaceName, geoserverBasePath));
+exports.update = async (request, reply) => {
+    const {data, workspaceName} = request.body;
+    const {geoserverBasePath} = request.query;
+    return await workspaceService.update(data, workspaceName, geoserverBasePath);
 };
 
-exports.delete = async (req, res, next) => {
-    const {workspaceName} = req.body;
-    const {geoserverBasePath} = req.query;
-    res.json(await workspaceService.delete(workspaceName, geoserverBasePath));
+exports.delete = async (request, reply) => {
+    const {workspaceName} = request.body;
+    const {geoserverBasePath} = request.query;
+    return await workspaceService.delete(workspaceName, geoserverBasePath);
 };

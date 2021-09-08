@@ -1,4 +1,4 @@
-exports.result = (status, message, data = []) => {
+exports.response = (status, message, data = []) => {
     return {
         status,
         message,

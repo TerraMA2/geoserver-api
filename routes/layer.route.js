@@ -1,11 +1,10 @@
-const express = require('express');
-const router = express.Router();
+'use strict'
 const layerController = require('../controllers/layer.controller');
 
-router.get('/', layerController.get);
-router.post('/', layerController.create);
-router.post('/createAll', layerController.createAll);
-router.put('/', layerController.update);
-router.delete('/', layerController.delete);
-
-module.exports = router
+module.exports = async function (fastify, opts) {
+    fastify.get('/layer', layerController.get);
+    fastify.post('/layer', layerController.create);
+    fastify.post('/layer/createAll', layerController.createAll);
+    fastify.put('/layer', layerController.update);
+    fastify.delete('/layer', layerController.delete);
+}
