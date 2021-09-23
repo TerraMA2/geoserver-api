@@ -3,7 +3,7 @@ const {response} = require("../utils/response");
 const {handleErrors} = require("../utils/handleErrors");
 
 exports.get = async (workspaceName, featureTypeName = '', dataStoreName = '', geoserverBasePath) => {
-    const url = `workspaces/${ workspaceName }${ dataStoreName ? '/' + dataStoreName : '' }/featuretypes${ featureTypeName ? '/' + featureTypeName : '' }`;
+    const url = `rest/workspaces/${ workspaceName }${ dataStoreName ? '/' + dataStoreName : '' }/featuretypes${ featureTypeName ? '/' + featureTypeName : '' }`;
     const method = 'get';
     return await request({url, method}, geoserverBasePath)
         .then(res => response(res.status, '', res.data))
@@ -12,7 +12,7 @@ exports.get = async (workspaceName, featureTypeName = '', dataStoreName = '', ge
 
 exports.create = async (data, workspaceName, geoserverBasePath) => {
     const featureTypeName = data.featureType.name;
-    const url = `workspaces/${ workspaceName }/featuretypes`;
+    const url = `rest/workspaces/${ workspaceName }/featuretypes`;
     const method = 'post';
     return await request({url, method, data}, geoserverBasePath)
         .then(res => response(res.status, `Feature type ${ featureTypeName } created!`))
@@ -20,7 +20,7 @@ exports.create = async (data, workspaceName, geoserverBasePath) => {
 }
 
 exports.update = async (data, featureTypeName, workspaceName, geoserverBasePath) => {
-    const url = `workspaces/${ workspaceName }/featuretypes/${ featureTypeName }`;
+    const url = `rest/workspaces/${ workspaceName }/featuretypes/${ featureTypeName }`;
     const method = 'put';
     return await request({url, method, data}, geoserverBasePath)
         .then(res => response(res.status, `Feature type ${ featureTypeName } updated!`))
@@ -28,7 +28,7 @@ exports.update = async (data, featureTypeName, workspaceName, geoserverBasePath)
 }
 
 exports.delete = async (featureTypeName, workspaceName, geoserverBasePath) => {
-    const url = `workspaces/${ workspaceName }/featuretypes/${ featureTypeName }?recurse=true`;
+    const url = `rest/workspaces/${ workspaceName }/featuretypes/${ featureTypeName }?recurse=true`;
     const method = 'delete';
     return await request({url, method}, geoserverBasePath)
         .then(res => response(res.status, `Feature type ${ featureTypeName } deleted!`))

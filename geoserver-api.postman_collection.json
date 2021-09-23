@@ -1389,6 +1389,196 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "image",
+			"item": [
+				{
+					"name": "map",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3300/image/map?geoserverBasePath=/&version=&layers=&styles=&srs=&bbox=&width=&height=&format=&time=&cql_filter=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"image",
+								"map"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								},
+								{
+									"key": "version",
+									"value": ""
+								},
+								{
+									"key": "layers",
+									"value": ""
+								},
+								{
+									"key": "styles",
+									"value": ""
+								},
+								{
+									"key": "srs",
+									"value": ""
+								},
+								{
+									"key": "bbox",
+									"value": ""
+								},
+								{
+									"key": "width",
+									"value": ""
+								},
+								{
+									"key": "height",
+									"value": ""
+								},
+								{
+									"key": "format",
+									"value": ""
+								},
+								{
+									"key": "transparent",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "bgcolor",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "exceptions",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "time",
+									"value": ""
+								},
+								{
+									"key": "sld",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "sld_body",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "cql_filter",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "legend",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3300/image/legend?geoserverBasePath=/&layer=&format=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"image",
+								"legend"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								},
+								{
+									"key": "layer",
+									"value": ""
+								},
+								{
+									"key": "format",
+									"value": ""
+								},
+								{
+									"key": "style",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "featuretype",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "rule",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "scale",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "sld",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "sld_body",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "width",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "height",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "exceptions",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "language",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "legend_options",
+									"value": "forceLabels:on",
+									"disabled": true
+								},
+								{
+									"key": "version",
+									"value": "1.0.0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

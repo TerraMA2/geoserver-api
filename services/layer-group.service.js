@@ -3,7 +3,7 @@ const {response} = require("../utils/response");
 const {handleErrors} = require("../utils/handleErrors");
 
 exports.get = async (workspaceName, layerGroupName = '', geoserverBasePath) => {
-    const url = `workspaces/${ workspaceName }/layergroups${ layerGroupName ? '/' + layerGroupName : '' }`;
+    const url = `rest/workspaces/${ workspaceName }/layergroups${ layerGroupName ? '/' + layerGroupName : '' }`;
     const method = 'get';
     return await request({url, method}, geoserverBasePath)
         .then(res => response(res.status, '', res.data))
@@ -12,7 +12,7 @@ exports.get = async (workspaceName, layerGroupName = '', geoserverBasePath) => {
 
 exports.create = async (data, geoserverBasePath) => {
     const layerGroupName = data.layerGroup.name;
-    const url = 'layergroups';
+    const url = 'rest/layergroups';
     const method = 'post';
     return await request({url, method, data}, geoserverBasePath)
         .then(res => response(res.status, `Layer group ${ layerGroupName } created!`))
@@ -20,7 +20,7 @@ exports.create = async (data, geoserverBasePath) => {
 }
 
 exports.update = async (data, layerGroupName, geoserverBasePath) => {
-    const url = `layergroups/${ layerGroupName }`;
+    const url = `rest/layergroups/${ layerGroupName }`;
     const method = 'put';
     return await request({url, method, data}, geoserverBasePath)
         .then(res => response(res.status, `Layer group ${ layerGroupName } updated!`))
@@ -28,7 +28,7 @@ exports.update = async (data, layerGroupName, geoserverBasePath) => {
 }
 
 exports.delete = async (layerGroupName, basePath) => {
-    const url = `layergroups/${ layerGroupName }`;
+    const url = `rest/layergroups/${ layerGroupName }`;
     const method = 'delete';
     return await request({url, method}, basePath)
         .then(res => response(res.status, `Layer group ${ layerGroupName } deleted!`))

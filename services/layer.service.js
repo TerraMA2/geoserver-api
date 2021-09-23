@@ -3,7 +3,7 @@ const {response} = require("../utils/response");
 const {handleErrors} = require("../utils/handleErrors");
 
 exports.get = async (workspaceName, type, layerName = '', geoserverBasePath) => {
-    const url = `layers/${ workspaceName }/${ type }layers${ layerName ? '/' + layerName : '' }`;
+    const url = `rest/layers/${ workspaceName }/${ type }layers${ layerName ? '/' + layerName : '' }`;
     const method = 'get';
     return await request({url, method}, geoserverBasePath)
         .then(res => response(res.status, '', res.data))
@@ -12,7 +12,7 @@ exports.get = async (workspaceName, type, layerName = '', geoserverBasePath) => 
 
 exports.create = async (data, workspaceName, type, geoserverBasePath) => {
     const layerName = data[type + 'Layer'].name;
-    const url = `workspaces/${ workspaceName }/${ type }layers`;
+    const url = `rest/workspaces/${ workspaceName }/${ type }layers`;
     const method = 'post';
     return await request({url, method, data}, geoserverBasePath)
         .then(res => response(res.status, `Layer ${ layerName } created!`))
@@ -20,7 +20,7 @@ exports.create = async (data, workspaceName, type, geoserverBasePath) => {
 }
 
 exports.update = async (data, workspaceName, layerName, type, geoserverBasePath) => {
-    const url = `workspaces/${ workspaceName }/${ type }layers/${ layerName }`;
+    const url = `rest/workspaces/${ workspaceName }/${ type }layers/${ layerName }`;
     const method = 'put';
     return await request({url, method, data}, geoserverBasePath)
         .then(res => response(res.status, `Layer ${ layerName } updated!`))
@@ -28,7 +28,7 @@ exports.update = async (data, workspaceName, layerName, type, geoserverBasePath)
 }
 
 exports.delete = async (workspaceName, layerName, type, geoserverBasePath) => {
-    const url = `workspaces/${ workspaceName }/${ type }layers/${ layerName }`;
+    const url = `rest/workspaces/${ workspaceName }/${ type }layers/${ layerName }`;
     const method = 'delete';
     return await request({url, method}, geoserverBasePath)
         .then(res => response(res.status, `Layer ${ layerName } deleted!`))

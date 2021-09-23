@@ -3,7 +3,7 @@ const {response} = require("../utils/response");
 const {handleErrors} = require("../utils/handleErrors");
 
 exports.get = async (workspaceName = '', geoserverBasePath) => {
-    const url = `workspaces${ workspaceName ? '/' + workspaceName : '' }`;
+    const url = `rest/workspaces${ workspaceName ? '/' + workspaceName : '' }`;
     const method = 'get';
     return await request({url, method}, geoserverBasePath)
         .then(res => response(res.status, '', res.data))
@@ -12,7 +12,7 @@ exports.get = async (workspaceName = '', geoserverBasePath) => {
 
 exports.create = async (data, geoserverBasePath) => {
     const workspaceName = data.workspace.name;
-    const url = 'workspaces';
+    const url = 'rest/workspaces';
     const method = 'post';
     return await request({url, method, data}, geoserverBasePath)
         .then(res => response(res.status, `Workspace ${ workspaceName } created!`))
@@ -20,7 +20,7 @@ exports.create = async (data, geoserverBasePath) => {
 }
 
 exports.update = async (data, workspaceName, geoserverBasePath) => {
-    const url = `workspaces/${ workspaceName }`;
+    const url = `rest/workspaces/${ workspaceName }`;
     const method = 'put';
     return await request({url, method, data}, geoserverBasePath)
         .then(res => response(res.status, `Workspace ${ workspaceName } updated!`))
@@ -28,7 +28,7 @@ exports.update = async (data, workspaceName, geoserverBasePath) => {
 }
 
 exports.delete = async (workspaceName, geoserverBasePath) => {
-    const url = `workspaces/${ workspaceName }`;
+    const url = `rest/workspaces/${ workspaceName }`;
     const method = 'delete';
     return await request({url, method}, geoserverBasePath)
         .then(res => response(res.status, `Workspace ${ workspaceName } deleted!`))
