@@ -1399,7 +1399,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3300/image/map?geoserverBasePath=/&version=&layers=&styles=&srs=&bbox=&width=&height=&format=&time=&cql_filter=",
+							"raw": "http://localhost:3300/image/map?geoserverBasePath=/&version=&layers=&styles=&srs=&bbox=&width=&height=&format=&time=P1Y/2017&cql_filter=RED_BAND%3E0;a_cardeter_31_id=%2758608%27",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1463,10 +1463,10 @@
 								},
 								{
 									"key": "time",
-									"value": ""
+									"value": "P1Y/2017"
 								},
 								{
-									"key": "sld",
+									"key": "sldfalse",
 									"value": "",
 									"disabled": true
 								},
@@ -1477,7 +1477,12 @@
 								},
 								{
 									"key": "cql_filter",
-									"value": ""
+									"value": "RED_BAND%3E0;a_cardeter_31_id=%2758608%27"
+								},
+								{
+									"key": "onlyUrl",
+									"value": "1",
+									"disabled": true
 								}
 							]
 						}
@@ -1571,6 +1576,182 @@
 								{
 									"key": "version",
 									"value": "1.0.0",
+									"disabled": true
+								},
+								{
+									"key": "onlyUrl",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "info",
+			"item": [
+				{
+					"name": "wms",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3300/info/wms?geoserverBasePath=/&version=&layers=&srs=&bbox=&width=&height=&query_layers=&x=&y=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"info",
+								"wms"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								},
+								{
+									"key": "version",
+									"value": ""
+								},
+								{
+									"key": "layers",
+									"value": ""
+								},
+								{
+									"key": "styles",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "srs",
+									"value": ""
+								},
+								{
+									"key": "bbox",
+									"value": ""
+								},
+								{
+									"key": "width",
+									"value": ""
+								},
+								{
+									"key": "height",
+									"value": ""
+								},
+								{
+									"key": "query_layers",
+									"value": ""
+								},
+								{
+									"key": "info_format",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "feature_count",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "x",
+									"value": ""
+								},
+								{
+									"key": "y",
+									"value": ""
+								},
+								{
+									"key": "exceptions",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wfs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3300/info/wfs?geoserverBasePath=/&version=&typeNames=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3300",
+							"path": [
+								"info",
+								"wfs"
+							],
+							"query": [
+								{
+									"key": "geoserverBasePath",
+									"value": "/"
+								},
+								{
+									"key": "version",
+									"value": ""
+								},
+								{
+									"key": "typeNames",
+									"value": ""
+								},
+								{
+									"key": "srsName",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "bbox",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "count",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "maxFeatures",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "propertyName",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "outputFormat",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "exceptions",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "cql_filter",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "featureID",
+									"value": "",
 									"disabled": true
 								}
 							]

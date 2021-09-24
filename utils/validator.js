@@ -1,5 +1,7 @@
 const Map = require("../model/map.model");
 const Legend = require("../model/legend.model");
+const InfoWMS = require("../model/info-wms.model");
+const InfoWFS = require("../model/info-wfs.model");
 
 module.exports.validateMap = (params) => {
     const { version, layers, styles, srs, bbox, width, height, format, transparent, bgcolor, exceptions, time, sld, sld_body, cql_filter } = params;
@@ -9,9 +11,6 @@ module.exports.validateMap = (params) => {
     }
     if (!map.layers) {
         return 'Missing layers';
-    }
-    if (!map.styles) {
-        return 'Missing styles';
     }
     if (!map.srs) {
         return 'Missing srs';
@@ -41,4 +40,49 @@ module.exports.validateLegend = (params) => {
         return 'Missing format';
     }
     return true
+}
+
+module.exports.validateInfoWMS = (params) => {
+    const { version, layers, styles, srs, bbox, width, height, query_layers, info_format, feature_count, x, y, exceptions } = params;
+    const infoWMS = new InfoWMS(version, layers, styles, srs, bbox, width, height, query_layers, info_format, feature_count, x, y, exceptions);
+    if (!infoWMS.version) {
+        return 'Missing version';
+    }
+    if (!infoWMS.layers) {
+        return 'Missing layers';
+    }
+    if (!infoWMS.srs) {
+        return 'Missing srs';
+    }
+    if (!infoWMS.bbox) {
+        return 'Missing bbox';
+    }
+    if (!infoWMS.width) {
+        return 'Missing width';
+    }
+    if (!infoWMS.height) {
+        return 'Missing height';
+    }
+    if (!infoWMS.query_layers) {
+        return 'Missing query layers';
+    }
+    if (!infoWMS.x) {
+        return 'Missing x';
+    }
+    if (!infoWMS.y) {
+        return 'Missing y';
+    }
+    return true;
+}
+
+module.exports.validateInfoWFS = (params) => {
+    const { version, typeNames, srsName, bbox, count, maxFeatures, sortBy, propertyName, outputFormat, exceptions, cql_filter, featureID } = params;
+    const infoWFS = new InfoWFS(version, typeNames, srsName, bbox, count, maxFeatures, sortBy, propertyName, outputFormat, exceptions, cql_filter, featureID);
+    if (!infoWFS.version) {
+        return 'Missing version';
+    }
+    if (!infoWFS.typeNames) {
+        return 'Missing typeNames';
+    }
+    return true;
 }
