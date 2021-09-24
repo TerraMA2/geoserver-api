@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "prod": "NODE_ENV=production fastify start -l info app.js",
+    "prod": "NODE_ENV=production fastify start -p 3300 -l info app.js",
     "dev": "NODE_ENV=development fastify start -p 3300 -w -l debug -P app.js"
   },
   "dependencies": {
