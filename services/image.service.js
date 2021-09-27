@@ -2,12 +2,13 @@ const {request} = require("../utils/request");
 const {response} = require("../utils/response");
 const {handleErrors} = require("../utils/handleErrors");
 const validator = require('../utils/validator');
-const url = require("../utils/url");
+const urlUtil = require("../utils/url");
 
-exports.getMap = async (params) => {
-    const { geoserverBasePath, onlyUrl } = params;
+module.exports.getMap = async (params) => {
+    const { geoserverBasePath, onlyUrl, baseURL } = params;
     delete params.geoserverBasePath;
     delete params.onlyUrl;
+    delete params.baseURL;
 
     const isValid = validator.validateMap(params);
     if (isValid !== true) {
@@ -16,28 +17,41 @@ exports.getMap = async (params) => {
 
     params['service']='WMS';
     params['request']='GetMap';
+    params['exceptions']='application/json';
 
     if (onlyUrl) {
-        return response(200, '', `${url.getBaseUrl(geoserverBasePath)}wms?${new URLSearchParams(params).toString()}`);
+        let url = urlUtil.getBaseUrl(geoserverBasePath);
+        if (baseURL) {
+            url = baseURL;
+        }
+        return response(200, '', `${url}wms?${new URLSearchParams(params).toString()}`);
     }
 
     const options = {
         url: 'wms',
         method: 'get',
         responseType: 'arraybuffer',
-        contentType: params.format,
+        contentType: 'image/png' || params.format,
         params
     };
-
-    return await request(options, geoserverBasePath)
-        .then(res => response(res.status, '', Buffer.from(res.data).toString('base64')))
+    return await request(options, geoserverBasePath, baseURL)
+        .then(async res => {
+            const responseBuffer = res.data;
+            const errors = checkErrors(responseBuffer);
+            if (errors !== false) {
+                return response(400, errors)
+            }
+            return response(res.status, '', `data:${options.contentType};base64,${Buffer.from(responseBuffer).toString('base64')}`)
+        })
         .catch((error) => handleErrors(error, `Couldn't get the map image`));
 }
 
-exports.getLegend = async (params) => {
-    const { geoserverBasePath, onlyUrl } = params;
+
+module.exports.getLegend = async (params) => {
+    const { geoserverBasePath, onlyUrl, baseURL } = params;
     delete params.geoserverBasePath;
     delete params.onlyUrl;
+    delete params.baseURL;
 
     const isValid = validator.validateLegend(params);
     if (isValid !== true) {
@@ -45,6 +59,7 @@ exports.getLegend = async (params) => {
     }
     params['service']='WMS';
     params['request']='GetLegendGraphic';
+    params['exceptions']='application/json';
 
     if (onlyUrl) {
         return response(200, '', `${url.getBaseUrl(geoserverBasePath)}wms?${new URLSearchParams(params).toString()}`);
@@ -54,10 +69,32 @@ exports.getLegend = async (params) => {
         url: 'wms',
         method: 'get',
         responseType: 'arraybuffer',
-        contentType: 'image/png',
+        contentType: 'image/png' || params.format,
         params
     };
-    return await request(options, geoserverBasePath)
-        .then(res => response(res.status, '', Buffer.from(res.data).toString('base64')))
+    return await request(options, geoserverBasePath, baseURL)
+        .then(async res => {
+            const responseBuffer = res.data;
+            const errors = checkErrors(responseBuffer);
+            if (errors !== false) {
+                return response(400, errors)
+            }
+            return response(res.status, '', `data:${options.contentType};base64,${Buffer.from(responseBuffer).toString('base64')}`)
+        })
         .catch((error) => handleErrors(error, `Couldn't get the legend image`));
+}
+
+function checkErrors(data) {
+    try {
+        const isJSON = validator.isJSON(data);
+        if (isJSON) {
+            const responseJson = JSON.parse(Buffer.from(data).toString('utf-8'));
+            const exceptions = responseJson.exceptions;
+            const exceptionsTexts = exceptions.map(({text}, index) => `Error ${ ++index } - ${ text }`);
+            return exceptionsTexts.join('\n- ');
+        }
+        return false;
+    }catch (e) {
+        return 'Error occurred';
+    }
 }

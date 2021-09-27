@@ -2,6 +2,7 @@ const Map = require("../model/map.model");
 const Legend = require("../model/legend.model");
 const InfoWMS = require("../model/info-wms.model");
 const InfoWFS = require("../model/info-wfs.model");
+const {response} = require("../utils/response");
 
 module.exports.validateMap = (params) => {
     const { version, layers, styles, srs, bbox, width, height, format, transparent, bgcolor, exceptions, time, sld, sld_body, cql_filter } = params;
@@ -85,4 +86,13 @@ module.exports.validateInfoWFS = (params) => {
         return 'Missing typeNames';
     }
     return true;
+}
+
+module.exports.isJSON = (data) => {
+    try {
+        JSON.parse(Buffer.from(data).toString('utf-8'));
+        return true;
+    } catch (e) {
+        return false;
+    }
 }
